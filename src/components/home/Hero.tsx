@@ -30,8 +30,8 @@ const Hero = () => {
                             </p>
 
                             <div className="mt-10 sm:mt-12">
-                                <form onSubmit={handleSearch} className="sm:flex glass-card rounded-full p-2 items-center w-full shadow-[0_8px_32px_rgba(0,0,0,0.5)] ring-1 ring-white/20">
-                                    <div className="flex-1 flex items-center px-4 py-2 sm:py-3 border-b sm:border-b-0 sm:border-r border-white/10">
+                                <form onSubmit={handleSearch} className="flex flex-col sm:flex-row glass-card rounded-3xl sm:rounded-full p-2 items-stretch sm:items-center w-full shadow-[0_8px_32px_rgba(0,0,0,0.5)] ring-1 ring-white/20 gap-2 sm:gap-0">
+                                    <div className="flex-1 flex items-center px-4 py-3 sm:py-3 border-b sm:border-b-0 sm:border-r border-white/10">
                                         <MapPin className="h-5 w-5 text-blue-400 mr-3 animate-bounce" />
                                         <input
                                             type="text"
@@ -39,8 +39,8 @@ const Hero = () => {
                                             className="w-full bg-transparent text-white placeholder-slate-400 focus:outline-none focus:ring-0 sm:text-lg"
                                         />
                                     </div>
-                                    <div className="mt-3 sm:mt-0 sm:ml-2">
-                                        <button type="submit" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-semibold rounded-full text-white bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 md:py-4 md:text-lg md:px-10 transition-all shadow-[0_0_20px_rgba(79,70,229,0.4)] hover:shadow-[0_0_30px_rgba(79,70,229,0.6)] transform hover:-translate-y-0.5">
+                                    <div className="sm:ml-2 flex-shrink-0">
+                                        <button type="submit" className="w-full flex items-center justify-center px-8 py-3 sm:py-4 border border-transparent text-base font-semibold rounded-2xl sm:rounded-full text-white bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 md:text-lg md:px-10 transition-all shadow-[0_0_20px_rgba(79,70,229,0.4)] hover:shadow-[0_0_30px_rgba(79,70,229,0.6)] transform hover:-translate-y-0.5">
                                             <Search className="h-5 w-5 mr-2" />
                                             Search Homes
                                         </button>

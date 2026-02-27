@@ -1,0 +1,212 @@
+.auth-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.auth-modal-card {
+    display: flex;
+    align-content: stretch;
+    width: 848px;
+    /* 148 + 300 + 400 */
+    /* 148 + 300 + 400 */
+    height: 360px;
+    border-radius: 16px;
+    background: rgb(0 0 0 / 32%);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    /* Add an inner shadow/glow */
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05), 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.close-modal-btn {
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    z-index: 10;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+}
+
+.close-modal-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    transform: scale(1.05);
+}
+
+.card-nav {
+    position: relative;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 148px;
+    flex: 0 0 148px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.card-nav li {
+    flex: 1 1 auto;
+    display: grid;
+    place-items: center;
+}
+
+.card-nav .active-bar {
+    position: absolute;
+    top: 33.33%;
+    left: 0;
+    width: 5px;
+    border-radius: 2.5px;
+    height: 33.33%;
+    background: #4672ff;
+    transition: 0.4s ease-in-out;
+}
+
+.card-nav button {
+    background: transparent;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    opacity: 0.75;
+    transition: 0.3s;
+    cursor: pointer;
+    color: #747b92;
+    font-family: inherit;
+    font-size: 14px;
+}
+
+.card-nav button.active {
+    color: #f9f9f9;
+    opacity: 1;
+}
+
+.card-nav button:not(.active):hover {
+    opacity: 1;
+}
+
+.card-hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin: -48px 0;
+    flex: 0 0 300px;
+    width: 300px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #4672ff 0%, #3158dd 100%);
+    box-shadow: 0 10px 30px -5px rgba(70, 114, 255, 0.4);
+}
+
+.card-hero-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: 0.5s ease-in-out;
+}
+
+.card-hero-content {
+    height: 456px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.card-hero h2,
+.card-hero h3 {
+    text-align: left;
+    font-weight: 400;
+    margin: 0;
+    padding-left: 28px;
+    padding-right: 28px;
+    color: #f9f9f9;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-hero h2 {
+    font-size: 26px;
+    margin: 0 0 6px;
+    font-weight: 600;
+}
+
+.card-hero h3 {
+    opacity: 0.8;
+    font-size: 15px;
+}
+
+.hero-illustration {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 24px;
+    margin-top: 30px;
+    opacity: 0.25;
+}
+
+.card-form {
+    position: relative;
+    overflow: hidden;
+    padding: 24px;
+    width: 400px;
+    flex: 0 0 400px;
+}
+
+.forms {
+    position: absolute;
+    height: 200%;
+    left: 0;
+    top: 0;
+    transition: 0.5s ease-in-out;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-form {
+    height: 50%;
+    width: 100%;
+    padding: 8px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.auth-form.active {
+    opacity: 1;
+    pointer-events: auto;
+    transition-delay: 0.2s;
+}

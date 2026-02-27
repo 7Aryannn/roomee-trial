@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { Building2, Search, UserCircle, Menu, X, PlusCircle } from 'lucide-react';
+import { Building2, Search, Menu, X, PlusCircle } from 'lucide-react';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,11 +43,6 @@ const Header = () => {
                         }>
                             <PlusCircle className="w-4 h-4" /> Post Property
                         </NavLink>
-
-                        <button className="flex items-center space-x-2 bg-slate-800 hover:bg-blue-600/20 border border-white/10 hover:border-blue-500/50 px-4 py-2 rounded-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(37,99,235,0.3)] ml-2 group">
-                            <UserCircle className="w-5 h-5 text-slate-300 group-hover:text-blue-400 transition-colors" />
-                            <span className="text-sm font-medium text-white group-hover:text-blue-100 transition-colors">Login</span>
-                        </button>
                     </nav>
 
                     {/* Mobile menu button */}
@@ -91,13 +86,6 @@ const Header = () => {
                                 <PlusCircle className="w-5 h-5" /> Post Property
                             </div>
                         </NavLink>
-
-                        <div className="pt-2 mt-2 border-t border-white/10">
-                            <button className="w-full text-left flex items-center space-x-3 px-4 py-3 rounded-lg font-medium text-white bg-slate-800 hover:bg-blue-600/20 hover:border-blue-500/50 transition-all duration-300 border border-white/10 group">
-                                <UserCircle className="w-5 h-5 text-slate-300 group-hover:text-blue-400 transition-colors" />
-                                <span className="group-hover:text-blue-100 transition-colors">Login / Sign Up</span>
-                            </button>
-                        </div>
                     </div>
                 </div>
             )}
