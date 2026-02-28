@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { Building2, Search, Menu, X, PlusCircle, LogIn } from 'lucide-react';
+import { Building2, Search, Menu, X, PlusCircle, LogIn, LayoutDashboard } from 'lucide-react';
 import AuthModal from '../components/AuthModal';
 
 const Header = () => {
@@ -33,7 +33,7 @@ const Header = () => {
                                 <Search className="w-4 h-4 text-blue-400" /> Find Home
                             </NavLink>
                             <NavLink to="/dashboard" className={navLinkClass}>
-                                Dashboard
+                                <LayoutDashboard className="w-4 h-4 text-blue-400" /> Dashboard
                             </NavLink>
 
                             <div className="h-6 w-px bg-white/10 mx-2"></div>
@@ -84,7 +84,9 @@ const Header = () => {
                                 className={({ isActive }) => `block px-4 py-3 rounded-lg font-medium transition-colors ${isActive ? 'bg-white/10 text-white' : 'text-slate-300 hover:text-white hover:bg-white/5'}`}
                                 onClick={() => setIsMenuOpen(false)}
                             >
-                                Dashboard
+                                <div className="flex items-center gap-3">
+                                    <LayoutDashboard className="w-5 h-5 text-blue-400" /> Dashboard
+                                </div>
                             </NavLink>
                             <NavLink
                                 to="/post-property"
