@@ -29,6 +29,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
 
     const handleViewChange = (newView: 'signin' | 'signup') => {
         setView(newView);
+        setShowPassword(false);
     };
 
     return (
