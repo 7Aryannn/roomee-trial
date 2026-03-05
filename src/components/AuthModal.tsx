@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Building2, X, UserCheck, UserPlus, Mail, Lock, User, ArrowRight } from 'lucide-react';
+import { Building2, X, UserCheck, UserPlus, Mail, Lock, User, ArrowRight, Eye, EyeOff } from 'lucide-react';
 
 interface AuthModalProps {
     isOpen: boolean;
@@ -9,6 +9,7 @@ interface AuthModalProps {
 const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
     const [view, setView] = useState<'signin' | 'signup'>('signin');
     const [isAnimating, setIsAnimating] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
     // Prevent scrolling when modal is open
     useEffect(() => {
@@ -189,10 +190,18 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                                         <div className="relative">
                                             <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 w-5 h-5 group-focus-within:text-blue-400 transition-colors" />
                                             <input
-                                                type="password"
+                                                type={showPassword ? "text" : "password"}
                                                 placeholder="••••••••"
-                                                className="w-full bg-slate-950/50 border border-slate-800 text-white rounded-xl pl-11 pr-4 py-3 text-base focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500 focus:bg-slate-900 transition-all placeholder:text-slate-600"
+                                                className="w-full bg-slate-950/50 border border-slate-800 text-white rounded-xl pl-11 pr-12 py-3 text-base focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500 focus:bg-slate-900 transition-all placeholder:text-slate-600"
                                             />
+                                            <button
+                                                type="button"
+                                                onClick={() => setShowPassword(!showPassword)}
+                                                className="absolute right-3 top-1/2 -translate-y-1/2 flex flex-col items-center justify-center text-slate-500 hover:text-blue-400 transition-colors focus:outline-none"
+                                            >
+                                                {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                                                <span className="text-[10px] font-medium leading-none mt-0.5">{showPassword ? 'Hide' : 'Show'}</span>
+                                            </button>
                                         </div>
                                         <div className="flex justify-end pt-1">
                                             <button type="button" className="text-xs text-blue-400 hover:text-blue-300 transition-colors">Forgot password?</button>
@@ -258,10 +267,18 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                                         <div className="relative">
                                             <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 w-4 h-4 sm:w-5 sm:h-5 group-focus-within:text-blue-400 transition-colors" />
                                             <input
-                                                type="password"
+                                                type={showPassword ? "text" : "password"}
                                                 placeholder="Create a password"
-                                                className="w-full bg-slate-950/50 border border-slate-800 text-white rounded-xl pl-10 sm:pl-11 pr-4 py-2.5 sm:py-3 text-base focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500 focus:bg-slate-900 transition-all placeholder:text-slate-600"
+                                                className="w-full bg-slate-950/50 border border-slate-800 text-white rounded-xl pl-10 sm:pl-11 pr-12 py-2.5 sm:py-3 text-base focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500 focus:bg-slate-900 transition-all placeholder:text-slate-600"
                                             />
+                                            <button
+                                                type="button"
+                                                onClick={() => setShowPassword(!showPassword)}
+                                                className="absolute right-3 top-1/2 -translate-y-1/2 flex flex-col items-center justify-center text-slate-500 hover:text-blue-400 transition-colors focus:outline-none"
+                                            >
+                                                {showPassword ? <EyeOff className="w-4 h-4 sm:w-5 sm:h-5" /> : <Eye className="w-4 h-4 sm:w-5 sm:h-5" />}
+                                                <span className="text-[8px] sm:text-[10px] font-medium leading-none mt-0.5">{showPassword ? 'Hide' : 'Show'}</span>
+                                            </button>
                                         </div>
                                     </div>
                                     <div className="pt-2 sm:pt-4">
