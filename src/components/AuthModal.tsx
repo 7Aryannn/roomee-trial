@@ -10,6 +10,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
     const [view, setView] = useState<'signin' | 'signup'>('signin');
     const [isAnimating, setIsAnimating] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
+    const [signUpPassword, setSignUpPassword] = useState('');
 
     // Prevent scrolling when modal is open
     useEffect(() => {
@@ -18,7 +19,10 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
             setIsAnimating(true);
         } else {
             document.body.style.overflow = 'unset';
-            setTimeout(() => setIsAnimating(false), 300);
+            setTimeout(() => {
+                setIsAnimating(false);
+                setSignUpPassword('');
+            }, 300);
         }
         return () => {
             document.body.style.overflow = 'unset';
@@ -30,6 +34,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
     const handleViewChange = (newView: 'signin' | 'signup') => {
         setView(newView);
         setShowPassword(false);
+        setSignUpPassword('');
     };
 
     return (
@@ -285,6 +290,8 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                                             <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 w-4 h-4 sm:w-5 sm:h-5 group-focus-within:text-blue-400 transition-colors" />
                                             <input
                                                 type={showPassword ? "text" : "password"}
+                                                value={signUpPassword}
+                                                onChange={(e) => setSignUpPassword(e.target.value)}
                                                 placeholder="Create a password"
                                                 className="w-full bg-slate-950/50 border border-slate-800 text-white rounded-xl pl-10 sm:pl-11 pr-12 py-2.5 sm:py-3 text-base focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500 focus:bg-slate-900 transition-all placeholder:text-slate-600"
                                             />
@@ -296,6 +303,28 @@ const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                                                 {showPassword ? <EyeOff className="w-4 h-4 sm:w-5 sm:h-5" /> : <Eye className="w-4 h-4 sm:w-5 sm:h-5" />}
                                                 <span className="text-[8px] sm:text-[10px] font-medium leading-none mt-0.5">{showPassword ? 'Hide' : 'Show'}</span>
                                             </button>
+                                        </div>
+                                        {/* Password Strength Bar */}
+                                        <div className="flex gap-1.5 pt-2 pb-1 px-1">
+                                            {(() => {
+                                                let score = 0;
+                                                if (signUpPassword) {
+                                                    if (signUpPassword.length >= 8) score++;
+                                                    if (/[A-Z]/.test(signUpPassword)) score++;
+                                                    if (/[a-z]/.test(signUpPassword)) score++;
+                                                    if (/[0-9]/.test(signUpPassword)) score++;
+                                                    if (/[^A-Za-z0-9]/.test(signUpPassword)) score++;
+                                                }
+                                                const colors = ['bg-red-500', 'bg-orange-500', 'bg-yellow-500', 'bg-green-400', 'bg-emerald-500'];
+                                                const activeColor = score > 0 ? colors[score - 1] : '';
+                                                
+                                                return [1, 2, 3, 4, 5].map((index) => (
+                                                    <div 
+                                                        key={index} 
+                                                        className={`h-1.5 flex-1 rounded-full transition-all duration-300 ${index <= score ? activeColor : 'bg-slate-800/80'}`}
+                                                    />
+                                                ));
+                                            })()}
                                         </div>
                                     </div>
                                     <div className="pt-2 sm:pt-4">
