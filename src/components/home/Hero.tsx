@@ -26,7 +26,7 @@ const Hero = () => {
                                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-violet-400 to-indigo-400 xl:inline drop-shadow-[0_0_15px_rgba(96,165,250,0.5)]">mid-term rental</span>
                             </h1>
                             <p className="mt-4 text-base text-slate-300 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 font-light">
-                                Skip the hefty deposits and restrictive 11-month lock-ins. Discover flexible, verified homes across India tailored for professionals and students.
+                                Experience hassle-free renting with zero hidden fees. Find beautifully furnished spaces designed for modern living and comfort.
                             </p>
 
                             <div className="mt-10 sm:mt-12">
