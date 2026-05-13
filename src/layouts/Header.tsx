@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { Building2, Search, Menu, X, PlusCircle, LogIn, LayoutDashboard, LogOut } from 'lucide-react';
+import { Building2, Search, Menu, X, PlusCircle, LogIn, LayoutDashboard, LogOut, ShieldCheck } from 'lucide-react';
 import AuthModal from '../components/AuthModal';
+import AadharModal from '../components/AadharModal';
 import { useAuth } from '../contexts/AuthContext';
 
 const Header = () => {
     const { user, signOut } = useAuth();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isAuthOpen, setIsAuthOpen] = useState(false);
+    const [isKycOpen, setIsKycOpen] = useState(false);
 
     const navLinkClass = ({ isActive }: { isActive: boolean }) =>
         `flex items-center gap-2 px-3 py-2 rounded-lg font-medium transition-all duration-200 ${isActive
@@ -51,6 +53,12 @@ const Header = () => {
                             
                             {user ? (
                                 <div className="ml-2 flex items-center gap-3">
+                                    <button 
+                                        onClick={() => setIsKycOpen(true)}
+                                        className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium text-emerald-400 bg-emerald-400/10 hover:bg-emerald-400/20 rounded-full border border-emerald-500/30 transition-colors shadow-[0_0_10px_rgba(16,185,129,0.1)] hover:shadow-[0_0_15px_rgba(16,185,129,0.3)]"
+                                    >
+                                        <ShieldCheck className="w-4 h-4" /> Verify KYC
+                                    </button>
                                     <div className="flex items-center gap-2 bg-slate-900/50 border border-slate-700/50 rounded-full pl-1.5 pr-4 py-1.5 backdrop-blur-sm">
                                         <img src={user.avatar} alt={user.name} className="w-6 h-6 rounded-full bg-slate-800" />
                                         <span className="text-sm font-medium text-slate-200">{user.name}</span>
@@ -118,7 +126,14 @@ const Header = () => {
                             </NavLink>
                             <div className="pt-2">
                                 {user ? (
-                                    <div className="flex items-center justify-between px-4 py-3 bg-slate-800/50 rounded-lg mt-2">
+                                    <>
+                                        <button 
+                                            onClick={() => { setIsMenuOpen(false); setIsKycOpen(true); }}
+                                            className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium text-emerald-400 bg-emerald-400/10 hover:bg-emerald-400/20 border border-emerald-500/30 transition-colors mt-2 mb-2 shadow-[0_0_10px_rgba(16,185,129,0.1)]"
+                                        >
+                                            <ShieldCheck className="w-5 h-5" /> Verify KYC
+                                        </button>
+                                        <div className="flex items-center justify-between px-4 py-3 bg-slate-800/50 rounded-lg mt-2">
                                         <div className="flex items-center gap-3">
                                             <img src={user.avatar} alt={user.name} className="w-8 h-8 rounded-full bg-slate-700" />
                                             <span className="font-medium text-white">{user.name}</span>
@@ -153,6 +168,12 @@ const Header = () => {
             <AuthModal
                 isOpen={isAuthOpen}
                 onClose={() => setIsAuthOpen(false)}
+            />
+            <AadharModal 
+                isOpen={isKycOpen} 
+                onClose={() => setIsKycOpen(false)} 
+                onVerify={() => setIsKycOpen(false)} 
+                role="tenant" 
             />
         </>
     );
