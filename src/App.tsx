@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import SearchListings from './pages/SearchListings';
 import PropertyDetail from './pages/PropertyDetail';
 import Dashboard from './pages/Dashboard';
+import PostProperty from './pages/PostProperty';
 import { LanguageProvider } from './contexts/LanguageContext';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
                         <Route path="search" element={<SearchListings />} />
                         <Route path="property/:id" element={<PropertyDetail />} />
                         <Route path="dashboard" element={<Dashboard />} />
+                        <Route path="post-property" element={<PostProperty />} />
                     </Route>
                 </Routes>
             </Router>

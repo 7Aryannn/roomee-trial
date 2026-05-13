@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { mockProperties } from '../data/mockProperties';
 import SplitRentCalculator from '../components/SplitRentCalculator';
+import AadharModal from '../components/AadharModal';
 import 'leaflet/dist/leaflet.css';
 
 // Fix leaflet icon issue in standard react-leaflet setup
@@ -34,14 +35,22 @@ const PropertyDetail = () => {
     const property = mockProperties.find(p => p.id === id) || mockProperties[0];
     const [activeImage, setActiveImage] = useState(0);
     const [bookingStatus, setBookingStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+    const [showAadharModal, setShowAadharModal] = useState(false);
+    const [pendingBookingData, setPendingBookingData] = useState<BookingFormData | null>(null);
 
     const { register, handleSubmit, formState: { errors } } = useForm<BookingFormData>();
 
     const onSubmit = (data: BookingFormData) => {
+        setPendingBookingData(data);
+        setShowAadharModal(true);
+    };
+
+    const handleAadharVerify = () => {
+        setShowAadharModal(false);
         setBookingStatus('submitting');
         setTimeout(() => {
             setBookingStatus('success');
-            console.log('Booking request sent:', data, 'for property:', property.id);
+            console.log('Booking request sent:', pendingBookingData, 'for property:', property.id);
         }, 1500);
     };
 
@@ -306,6 +315,14 @@ const PropertyDetail = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Modals */}
+            <AadharModal 
+                isOpen={showAadharModal} 
+                onClose={() => setShowAadharModal(false)} 
+                onVerify={handleAadharVerify} 
+                role="tenant"
+            />
         </div>
     );
 };
