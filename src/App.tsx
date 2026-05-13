@@ -7,22 +7,25 @@ import PropertyDetail from './pages/PropertyDetail';
 import Dashboard from './pages/Dashboard';
 import PostProperty from './pages/PostProperty';
 import { LanguageProvider } from './contexts/LanguageContext';
+import { AuthProvider } from './contexts/AuthContext';
 
 function App() {
     return (
-        <LanguageProvider>
-            <Router>
-                <Routes>
-                    <Route path="/" element={<MainLayout />}>
-                        <Route index element={<Home />} />
-                        <Route path="search" element={<SearchListings />} />
-                        <Route path="property/:id" element={<PropertyDetail />} />
-                        <Route path="dashboard" element={<Dashboard />} />
-                        <Route path="post-property" element={<PostProperty />} />
-                    </Route>
-                </Routes>
-            </Router>
-        </LanguageProvider>
+        <AuthProvider>
+            <LanguageProvider>
+                <Router>
+                    <Routes>
+                        <Route path="/" element={<MainLayout />}>
+                            <Route index element={<Home />} />
+                            <Route path="search" element={<SearchListings />} />
+                            <Route path="property/:id" element={<PropertyDetail />} />
+                            <Route path="dashboard" element={<Dashboard />} />
+                            <Route path="post-property" element={<PostProperty />} />
+                        </Route>
+                    </Routes>
+                </Router>
+            </LanguageProvider>
+        </AuthProvider>
     );
 }
 

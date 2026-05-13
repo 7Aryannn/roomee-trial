@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { Building2, Search, Menu, X, PlusCircle, LogIn, LayoutDashboard } from 'lucide-react';
+import { Building2, Search, Menu, X, PlusCircle, LogIn, LayoutDashboard, LogOut } from 'lucide-react';
 import AuthModal from '../components/AuthModal';
+import { useAuth } from '../contexts/AuthContext';
 
 const Header = () => {
+    const { user, signOut } = useAuth();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isAuthOpen, setIsAuthOpen] = useState(false);
 
@@ -46,12 +48,29 @@ const Header = () => {
                             }>
                                 <PlusCircle className="w-4 h-4" /> Post Property
                             </NavLink>
-                            <button
-                                onClick={() => setIsAuthOpen(true)}
-                                className="ml-2 flex items-center gap-2 px-4 py-2 rounded-lg font-medium bg-blue-600 hover:bg-blue-500 text-white transition-all shadow-[0_0_15px_rgba(37,99,235,0.3)] hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] active:scale-95 border border-blue-500/50"
-                            >
-                                <LogIn className="w-4 h-4" /> Log In
-                            </button>
+                            
+                            {user ? (
+                                <div className="ml-2 flex items-center gap-3">
+                                    <div className="flex items-center gap-2 bg-slate-900/50 border border-slate-700/50 rounded-full pl-1.5 pr-4 py-1.5 backdrop-blur-sm">
+                                        <img src={user.avatar} alt={user.name} className="w-6 h-6 rounded-full bg-slate-800" />
+                                        <span className="text-sm font-medium text-slate-200">{user.name}</span>
+                                    </div>
+                                    <button
+                                        onClick={signOut}
+                                        className="p-2 text-slate-400 hover:text-red-400 hover:bg-red-400/10 rounded-lg transition-colors"
+                                        title="Sign Out"
+                                    >
+                                        <LogOut className="w-5 h-5" />
+                                    </button>
+                                </div>
+                            ) : (
+                                <button
+                                    onClick={() => setIsAuthOpen(true)}
+                                    className="ml-2 flex items-center gap-2 px-4 py-2 rounded-lg font-medium bg-blue-600 hover:bg-blue-500 text-white transition-all shadow-[0_0_15px_rgba(37,99,235,0.3)] hover:shadow-[0_0_20px_rgba(59,130,246,0.5)] active:scale-95 border border-blue-500/50"
+                                >
+                                    <LogIn className="w-4 h-4" /> Log In
+                                </button>
+                            )}
                         </nav>
 
                         {/* Mobile menu button */}
@@ -98,15 +117,33 @@ const Header = () => {
                                 </div>
                             </NavLink>
                             <div className="pt-2">
-                                <button
-                                    onClick={() => {
-                                        setIsMenuOpen(false);
-                                        setIsAuthOpen(true);
-                                    }}
-                                    className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium bg-blue-600 hover:bg-blue-500 text-white transition-all shadow-lg shadow-blue-500/20 mt-2"
-                                >
-                                    <LogIn className="w-5 h-5" /> Log In
-                                </button>
+                                {user ? (
+                                    <div className="flex items-center justify-between px-4 py-3 bg-slate-800/50 rounded-lg mt-2">
+                                        <div className="flex items-center gap-3">
+                                            <img src={user.avatar} alt={user.name} className="w-8 h-8 rounded-full bg-slate-700" />
+                                            <span className="font-medium text-white">{user.name}</span>
+                                        </div>
+                                        <button
+                                            onClick={() => {
+                                                signOut();
+                                                setIsMenuOpen(false);
+                                            }}
+                                            className="text-red-400 hover:text-red-300 p-2"
+                                        >
+                                            <LogOut className="w-5 h-5" />
+                                        </button>
+                                    </div>
+                                ) : (
+                                    <button
+                                        onClick={() => {
+                                            setIsMenuOpen(false);
+                                            setIsAuthOpen(true);
+                                        }}
+                                        className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium bg-blue-600 hover:bg-blue-500 text-white transition-all shadow-lg shadow-blue-500/20 mt-2"
+                                    >
+                                        <LogIn className="w-5 h-5" /> Log In
+                                    </button>
+                                )}
                             </div>
                         </div>
                     </div>
