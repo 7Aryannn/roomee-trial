@@ -13,6 +13,7 @@ const SearchListings = () => {
     const [nearMetroOnly, setNearMetroOnly] = useState(false);
     const [furnishedOnly, setFurnishedOnly] = useState(false);
     const [verifiedOnly, setVerifiedOnly] = useState(false);
+    const [maxPriceFilter, setMaxPriceFilter] = useState(30000);
 
     // Derived state
     const filteredProperties = mockProperties.filter(p => {
@@ -21,6 +22,7 @@ const SearchListings = () => {
         if (nearMetroOnly && !p.nearMetro) return false;
         if (furnishedOnly && p.furnishing === 'Unfurnished') return false;
         if (verifiedOnly && (!p.landlord.rating || p.landlord.rating < 4.8)) return false;
+        if (p.price > maxPriceFilter) return false;
         return true;
     });
 
@@ -90,10 +92,10 @@ const SearchListings = () => {
                                 </div>
                             </div>
 
-                            {/* Price Range placeholder */}
+                            {/* Price Range */}
                             <div className="flex-1 min-w-[150px]">
-                                <label className="block text-sm font-semibold text-slate-300 mb-2">Max Price</label>
-                                <input type="range" className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-500" min="2000" max="30000" step="1000" />
+                                <label className="block text-sm font-semibold text-slate-300 mb-2">Max Price: ₹{maxPriceFilter}</label>
+                                <input type="range" className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-500" min="2000" max="30000" step="1000" value={maxPriceFilter} onChange={(e) => setMaxPriceFilter(Number(e.target.value))} />
                                 <div className="flex justify-between text-xs text-slate-500 mt-2">
                                     <span>₹2k</span>
                                     <span>₹30k+</span>
@@ -147,6 +149,7 @@ const SearchListings = () => {
                                     setNearMetroOnly(false);
                                     setFurnishedOnly(false);
                                     setVerifiedOnly(false);
+                                    setMaxPriceFilter(30000);
                                 }}
                             >
                                 Clear Filters
