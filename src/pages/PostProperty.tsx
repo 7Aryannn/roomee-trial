@@ -15,7 +15,7 @@ const AMENITY_OPTIONS = [
     'CCTV', 'Clubhouse', 'Pet Friendly', 'Housekeeping', 'Smart TV',
     'Water Supply', 'Play Area', 'Food Included'
 ];
-const CITIES = ['Bengaluru', 'Mumbai', 'New Delhi', 'Hyderabad', 'Pune', 'Chennai'];
+const CITIES = ['Indore', 'Bhopal', 'Jabalpur', 'Gwalior', 'Rewa', 'Satna'];
 
 const STEPS = [
     { label: 'Basics', icon: Building2 },
@@ -178,7 +178,7 @@ const PostProperty = () => {
                             <h2 className="text-xl font-bold text-white flex items-center gap-2"><Building2 className="w-5 h-5 text-blue-400" /> Basic Information</h2>
                             <div>
                                 <label className={labelClass}>Property Title *</label>
-                                <input className={inputClass} placeholder="e.g. Modern 2BHK Near Tech Park" value={form.title} onChange={e => set('title', e.target.value)} />
+                                <input className={inputClass} placeholder="e.g. Modern 2BHK Near Palasia Square" value={form.title} onChange={e => set('title', e.target.value)} />
                             </div>
                             <div>
                                 <label className={labelClass}>Description</label>
@@ -199,14 +199,14 @@ const PostProperty = () => {
                                     <label className={labelClass}>Monthly Rent (₹) *</label>
                                     <div className="relative">
                                         <IndianRupee className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
-                                        <input type="number" className={inputClass + " pl-9"} placeholder="25000" value={form.price} onChange={e => set('price', e.target.value)} />
+                                        <input type="number" className={inputClass + " pl-9"} placeholder="8000" value={form.price} onChange={e => set('price', e.target.value)} />
                                     </div>
                                 </div>
                                 <div>
                                     <label className={labelClass}>Security Deposit (₹) *</label>
                                     <div className="relative">
                                         <IndianRupee className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
-                                        <input type="number" className={inputClass + " pl-9"} placeholder="75000" value={form.deposit} onChange={e => set('deposit', e.target.value)} />
+                                        <input type="number" className={inputClass + " pl-9"} placeholder="16000" value={form.deposit} onChange={e => set('deposit', e.target.value)} />
                                     </div>
                                 </div>
                             </div>
@@ -229,7 +229,7 @@ const PostProperty = () => {
                             </div>
                             <div>
                                 <label className={labelClass}>Area / Locality *</label>
-                                <input className={inputClass} placeholder="e.g. Koramangala, Bandra West" value={form.area} onChange={e => set('area', e.target.value)} />
+                                <input className={inputClass} placeholder="e.g. Civil Lines, Wright Town" value={form.area} onChange={e => set('area', e.target.value)} />
                             </div>
                             <div>
                                 <label className={labelClass}>Full Address *</label>

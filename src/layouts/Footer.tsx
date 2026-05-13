@@ -45,11 +45,11 @@ const Footer = () => {
                     <div>
                         <h3 className="text-white font-semibold mb-4">Top Cities</h3>
                         <ul className="space-y-2 text-sm">
-                            <li><Link to="/search?city=Bengaluru" className="hover:text-violet-400 transition-colors">Bengaluru</Link></li>
-                            <li><Link to="/search?city=Mumbai" className="hover:text-violet-400 transition-colors">Mumbai</Link></li>
-                            <li><Link to="/search?city=New+Delhi" className="hover:text-violet-400 transition-colors">New Delhi</Link></li>
-                            <li><Link to="/search?city=Pune" className="hover:text-violet-400 transition-colors">Pune</Link></li>
-                            <li><Link to="/search?city=Hyderabad" className="hover:text-violet-400 transition-colors">Hyderabad</Link></li>
+                            <li><Link to="/search?city=Indore" className="hover:text-violet-400 transition-colors">Indore</Link></li>
+                            <li><Link to="/search?city=Bhopal" className="hover:text-violet-400 transition-colors">Bhopal</Link></li>
+                            <li><Link to="/search?city=Jabalpur" className="hover:text-violet-400 transition-colors">Jabalpur</Link></li>
+                            <li><Link to="/search?city=Rewa" className="hover:text-violet-400 transition-colors">Rewa</Link></li>
+                            <li><Link to="/search?city=Satna" className="hover:text-violet-400 transition-colors">Satna</Link></li>
                         </ul>
                     </div>
 
@@ -59,7 +59,7 @@ const Footer = () => {
                         <ul className="space-y-3 text-sm">
                             <li className="flex items-center space-x-3">
                                 <MapPin className="h-5 w-5 text-blue-500" />
-                                <span>123 Startup Avenue, Koramangala<br />Bengaluru, Karnataka 560034</span>
+                                <span>123 Startup Avenue, Civil Lines<br />Rewa, Madhya Pradesh 486001</span>
                             </li>
                             <li className="flex items-center space-x-3">
                                 <Phone className="h-5 w-5 text-emerald-500" />

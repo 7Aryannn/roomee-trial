@@ -35,7 +35,7 @@ const Hero = () => {
                                         <MapPin className="h-5 w-5 text-blue-400 mr-3 animate-bounce" />
                                         <input
                                             type="text"
-                                            placeholder="Enter city (e.g. Bengaluru, Mumbai)"
+                                            placeholder="Enter city (e.g. Indore, Jabalpur)"
                                             className="w-full bg-transparent text-white placeholder-slate-400 focus:outline-none focus:ring-0 sm:text-lg"
                                         />
                                     </div>

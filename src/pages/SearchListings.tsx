@@ -77,12 +77,12 @@ const SearchListings = () => {
                                         onChange={(e) => setCityFilter(e.target.value)}
                                     >
                                         <option value="All">All Cities</option>
-                                        <option value="Bengaluru">Bengaluru</option>
-                                        <option value="Mumbai">Mumbai</option>
-                                        <option value="New Delhi">New Delhi</option>
-                                        <option value="Pune">Pune</option>
-                                        <option value="Hyderabad">Hyderabad</option>
-                                        <option value="Chennai">Chennai</option>
+                                        <option value="Indore">Indore</option>
+                                        <option value="Bhopal">Bhopal</option>
+                                        <option value="Jabalpur">Jabalpur</option>
+                                        <option value="Gwalior">Gwalior</option>
+                                        <option value="Rewa">Rewa</option>
+                                        <option value="Satna">Satna</option>
                                     </select>
                                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-400 group-hover:text-blue-400 transition-colors duration-300">
                                         <ChevronDown className="w-4 h-4" />
@@ -93,10 +93,10 @@ const SearchListings = () => {
                             {/* Price Range placeholder */}
                             <div className="flex-1 min-w-[150px]">
                                 <label className="block text-sm font-semibold text-slate-300 mb-2">Max Price</label>
-                                <input type="range" className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-500" min="10000" max="150000" step="5000" />
+                                <input type="range" className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-500" min="2000" max="30000" step="1000" />
                                 <div className="flex justify-between text-xs text-slate-500 mt-2">
-                                    <span>₹10k</span>
-                                    <span>₹1.5L+</span>
+                                    <span>₹2k</span>
+                                    <span>₹30k+</span>
                                 </div>
                             </div>
 

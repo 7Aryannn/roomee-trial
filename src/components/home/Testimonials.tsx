@@ -5,14 +5,14 @@ const Testimonials = () => {
         {
             id: 1,
             name: 'Aditi M.',
-            role: 'IT Professional in Bengaluru',
-            content: 'ROOMEE was a lifesaver! I moved to BGLR for a 3-month project and finding a place without a huge 10-month deposit was impossible until I found this platform.',
+            role: 'IT Professional in Indore',
+            content: 'ROOMEE was a lifesaver! I moved to Indore for a 3-month project and finding a place without a huge 10-month deposit was impossible until I found this platform.',
             avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150&auto=format&fit=crop',
         },
         {
             id: 2,
             name: 'Rohan K.',
-            role: 'Student in Pune',
+            role: 'Student in Jabalpur',
             content: 'The "Bachelor Friendly" filter actually works. Rented a great 2BHK with my friends. The digital agreement saved us so much time and broker fees.',
             avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop',
         },
