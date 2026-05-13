@@ -20,8 +20,8 @@ export const mockProperties: Property[] = [
         furnishing: 'Fully Furnished',
         amenities: ['Power Backup', 'Gym', 'Security', 'Wi-Fi Setup'],
         images: [
-            'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=2000&auto=format&fit=crop',
-            'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=2000&auto=format&fit=crop'
+            '/images/living_room.png',
+            '/images/bedroom.png'
         ],
         landlord: {
             name: 'Rajesh Kumar',
@@ -55,7 +55,7 @@ export const mockProperties: Property[] = [
         furnishing: 'Semi-Furnished',
         amenities: ['Power Backup', 'Air Conditioning', 'Lift'],
         images: [
-            'https://images.unsplash.com/photo-1536376072261-38c75010e6c9?q=80&w=2000&auto=format&fit=crop',
+            '/images/bedroom.png',
         ],
         landlord: {
             name: 'Anita Desai',
@@ -89,8 +89,8 @@ export const mockProperties: Property[] = [
         furnishing: 'Fully Furnished',
         amenities: ['Gym', 'Swimming Pool', 'Modular Kitchen', 'Servant Quarters'],
         images: [
-            'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000&auto=format&fit=crop',
-            'https://images.unsplash.com/photo-1600607687931-cebf14cdcaab?q=80&w=2000&auto=format&fit=crop'
+            '/images/living_room.png',
+            '/images/bedroom.png'
         ],
         landlord: {
             name: 'Vikram Singh',
@@ -124,7 +124,7 @@ export const mockProperties: Property[] = [
         furnishing: 'Fully Furnished',
         amenities: ['Wi-Fi', 'Food Included', 'Housekeeping', 'CCTV'],
         images: [
-            'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?q=80&w=2000&auto=format&fit=crop',
+            '/images/pg_room.png',
         ],
         landlord: {
             name: 'Safe Stays Managed',
@@ -158,7 +158,7 @@ export const mockProperties: Property[] = [
         furnishing: 'Semi-Furnished',
         amenities: ['Private Garden', 'Garage', 'Pet Friendly'],
         images: [
-            'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2000&auto=format&fit=crop',
+            '/images/house.png',
         ],
         landlord: {
             name: 'Reddy Builders',
@@ -192,7 +192,7 @@ export const mockProperties: Property[] = [
         furnishing: 'Unfurnished',
         amenities: ['Security', 'Balcony'],
         images: [
-            'https://images.unsplash.com/photo-1493809842364-78817add7ff6?q=80&w=2000&auto=format&fit=crop',
+            '/images/bedroom.png',
         ],
         landlord: {
             name: 'Sneha Patil',
@@ -226,7 +226,7 @@ export const mockProperties: Property[] = [
         furnishing: 'Fully Furnished',
         amenities: ['Lake View', 'Gym', 'Clubhouse'],
         images: [
-            'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=2000&auto=format&fit=crop',
+            '/images/living_room.png',
         ],
         landlord: {
             name: 'Kapoor Associates',
@@ -260,7 +260,7 @@ export const mockProperties: Property[] = [
         furnishing: 'Fully Furnished',
         amenities: ['Air Conditioning', 'High Speed Wi-Fi'],
         images: [
-            'https://images.unsplash.com/photo-1499955085172-a104c9463ece?q=80&w=2000&auto=format&fit=crop',
+            '/images/bedroom.png',
         ],
         landlord: {
             name: 'Aarti Gupta',
@@ -294,7 +294,8 @@ export const mockProperties: Property[] = [
         furnishing: 'Semi-Furnished',
         amenities: ['Power Backup', 'Security', 'Play Area'],
         images: [
-            'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=2000&auto=format&fit=crop',
+            '/images/living_room.png',
+            '/images/bedroom.png'
         ],
         landlord: {
             name: 'Mohammad Ali',
@@ -328,7 +329,7 @@ export const mockProperties: Property[] = [
         furnishing: 'Fully Furnished',
         amenities: ['Gym', 'Air Conditioning', 'Smart TV'],
         images: [
-            'https://images.unsplash.com/photo-1560448205-4d9b3e6bb6db?q=80&w=2000&auto=format&fit=crop',
+            '/images/bedroom.png',
         ],
         landlord: {
             name: 'Nisha Sharma',
@@ -362,7 +363,7 @@ export const mockProperties: Property[] = [
         furnishing: 'Semi-Furnished',
         amenities: ['Courtyard', 'Water Supply'],
         images: [
-            'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop',
+            '/images/house.png',
         ],
         landlord: {
             name: 'Ramanathan V',
@@ -396,7 +397,7 @@ export const mockProperties: Property[] = [
         furnishing: 'Fully Furnished',
         amenities: ['Wi-Fi', 'Study Room', 'CCTV'],
         images: [
-            'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?q=80&w=2000&auto=format&fit=crop',
+            '/images/pg_room.png',
         ],
         landlord: {
             name: 'TechStays Co.',
